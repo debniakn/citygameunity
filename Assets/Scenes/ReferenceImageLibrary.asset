@@ -21,9 +21,9 @@ MonoBehaviour:
       m_GuidLow: 4778506096590831154
       m_GuidHigh: 9131022050529755776
     m_SerializedTextureGuid:
-      m_GuidLow: 4995703840258811032
-      m_GuidHigh: 8795110187391785194
-    m_Size: {x: 0.13, y: 0.17333333}
+      m_GuidLow: 10310011281119209542
+      m_GuidHigh: 2719731094308202650
+    m_Size: {x: 0.11, y: 0.14666666}
     m_SpecifySize: 1
-    m_Name: cow
+    m_Name: book
     m_Texture: {fileID: 0}

@@ -38,7 +38,7 @@ public class PlaceTrackedImage : MonoBehaviour
 
             foreach (var prefab in ArPrefabs)
             {
-                if (imageName == prefab.name && !_instantiatedPrefabs.ContainsKey(imageName))
+                if (string.Compare(prefab.name, imageName, StringComparison.OrdinalIgnoreCase) == 0 && !_instantiatedPrefabs.ContainsKey(imageName))
                 {
                     var newPrefab = Instantiate(prefab, trackedImage.transform);
                     _instantiatedPrefabs[imageName] = newPrefab;
