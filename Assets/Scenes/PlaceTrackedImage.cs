@@ -25,15 +25,17 @@ public class PlaceTrackedImage : MonoBehaviour
     }
 
 
-    private void OnDisable()
+    void OnDisable()
     {
         _trackedImagesManager.trackablesChanged.RemoveListener(OnTrackedImagesChanged);
     }
 
     private void OnTrackedImagesChanged(ARTrackablesChangedEventArgs<ARTrackedImage> eventArgs)
     {
+        Debug.Log("Event started");
         foreach (var trackedImage in eventArgs.added)
         {
+            Debug.Log("Detected");
             var imageName = trackedImage.referenceImage.name;
 
             foreach (var prefab in ArPrefabs)
@@ -48,11 +50,13 @@ public class PlaceTrackedImage : MonoBehaviour
 
         foreach (var trackedImage in eventArgs.updated)
         {
+            Debug.Log("updated");
             _instantiatedPrefabs[trackedImage.referenceImage.name].SetActive(trackedImage.trackingState == TrackingState.Tracking);
         }
 
         foreach (var trackedImage in eventArgs.removed)
         {
+            Debug.Log("removed");
             Destroy(_instantiatedPrefabs[trackedImage.Value.referenceImage.name]);
             _instantiatedPrefabs.Remove(trackedImage.Value.referenceImage.name);
         }
